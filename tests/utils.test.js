@@ -20,9 +20,17 @@ it("should say hello", function() {
 // Level 1 Challenges
 // ========================================================
 
-it("should return the area of a 5 by 6 rectangle");
+it("should return the area of a 5 by 6 rectangle", function() {
+    const area = utils.area(5, 6);
+    expect(area).to.be.equal(30);
+    expect(area).to.be.a("Number");
+});
 
-it("should return the are of a circle of radius 5");
+it("should return the are of a circle of radius 5", function() {
+    const circleArea = utils.circleArea(5);
+    expect(circleArea).to.be.equal(78.53981633974483);
+    expect(circleArea).to.be.a("Number")
+});
 
 // ========================================================
 // Level 2 Challenges
@@ -32,11 +40,27 @@ it("should return the are of a circle of radius 5");
 // tests eventually.
 // ========================================================
 
-it("Should create a new (object) Item with name and price");
+it("Should create a new (object) Item with name and price", function() {
+    const item = {name: "water", price:"2"};
+    expect(item).to.be.a("Object");
+    expect(item).to.have.property("name");
+    expect(item).to.have.property("price");
+});
 
-it("Should return an array containing all items in cart");
+it("Should return an array containing all items in cart", function() {
+    var cart = { Items: ["apple", "banana", "hat"] };
+    expect(cart.Items).to.be.a("Array");
+    chai.assert.isArray(cart.Items);
+    // expect(cart.Items.length).to.be.gt(0);
+    //commented out becase cart can be empty and return nothing
+});
 
-it("Should add a new item to the shopping cart");
+it("Should add a new item to the shopping cart", function() {
+    var cart = { Items: ["apple", "banana", "hat"] };
+    expect(cart.Items.length).to.be.equal(3);
+    cart.Items.push("water");
+    expect(cart.Items.length).to.be.equal(4);
+});
 
 it("Should return the number of items in the cart");
 
